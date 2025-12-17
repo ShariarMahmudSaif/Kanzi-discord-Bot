@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  lavalink:
+    image: fredboat/lavalink:4.0.1
+    container_name: lavalink
+    ports:
+      - "2333:2333"
+    volumes:
+      - ./lavalink/application.yml:/opt/Lavalink/application.yml
+    restart: unless-stopped
+
+  kanzi-bot:
+    build: .
+    container_name: kanzi-bot
+    depends_on:
+      - lavalink
+    environment:
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
+      - LAVALINK_HOST=lavalink
+      - LAVALINK_PORT=2333
+      - LAVALINK_PASSWORD=youshallnotpass
+      - SPOTIFY_CLIENT_ID=${SPOTIFY_CLIENT_ID}
+      - SPOTIFY_CLIENT_SECRET=${SPOTIFY_CLIENT_SECRET}
+      - THEAUDIODB_API_KEY=${THEAUDIODB_API_KEY}
+      - TWITCH_CLIENT_ID=${TWITCH_CLIENT_ID}
+      - TWITCH_ACCESS_TOKEN=${TWITCH_ACCESS_TOKEN}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

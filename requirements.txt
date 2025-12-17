@@ -1,0 +1,12 @@
+nextcord
+yt-dlp
+requests
+pynacl
+python-dotenv
+wavelink
+spotipy
+aiohttp
+aiofiles
+diskcache
+prometheus-client
+structlog
