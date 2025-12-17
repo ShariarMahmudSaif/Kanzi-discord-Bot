@@ -94,4 +94,4 @@ MIT License - see LICENSE file
 ## Author
 
 Shariar Mahmud Saif</content>
-<parameter name="filePath">c:\Users\WALTON\Downloads\kanzi Bot\README.md
+<parameter name="filePath">..\kanzi Bot\README.md
